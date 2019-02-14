@@ -20,7 +20,7 @@ drinks = JSON.parse(open(url).read)
 drinks["drinks"].each do |ingredient|
   spirit = ingredient["strIngredient1"]
   # create new Ingredient
-  binding.pry
+  # binding.pry
   ingredient = Ingredient.create(name: spirit)
   puts "Creating #{ingredient.name}"
 end

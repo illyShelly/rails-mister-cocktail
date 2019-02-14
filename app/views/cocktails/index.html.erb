@@ -1,1 +1,37 @@
-<h1>All cocktails</h1>
+<div>
+  <div class="banner" style="background-image: linear-gradient(-120deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'cocktails.jpg' %>');">
+    <div class="banner-content">
+      <h1>Mr. Cocktail</h1>
+      <p>Awesome beverages for developers nightlife</p>
+      <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+  <div class="container">
+    <!-- <div class="row"> -->
+      <h2>All cocktails</h2>
+
+          <div class="cards padded">
+            <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
+              <div class="row">
+                <% @cocktails.each do |cocktail| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <!-- displayed cards -->
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+                      <div class="card-category">Cocktail</div>
+                      <div class="card-description">
+
+                        <h4><%= cocktail.name %></h4>
+                        <!-- <p>< cocktail.ingredient %></p> -->
+                      </div>
+                      <!--  <%= image_path "cocktails.jpg", alt: "Cocktail", class: "card-user avatar avatar-large" %> -->
+                      <!-- <a class="card-link" href="#" ></a> -->
+                      <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
+                    </div> <!-- end of card -->
+                  </div>
+                <% end %>
+            </div> <!-- end of row -->
+          </div>
+      <!-- </div> -->
+
+    </div>
+</div>

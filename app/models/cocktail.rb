@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
-  # has_many :ingredients, through: doses
-  # has_many :doses, dependent: destroy
+  has_many :doses, dependent: :destroy
+  has_many :ingredients, through: :doses
 
   validates :name, uniqueness: true, presence: true
   # later reviews
@@ -12,3 +12,4 @@ end
 # (but not the ingredients as they can be linked to other cocktails).
 
 # 4. uncomment relation when testing first Controller
+# 5. mistake dependent: destroy -> without ':'
