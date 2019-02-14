@@ -13,3 +13,7 @@ end
 
 # 4. uncomment relation when testing first Controller
 # 5. mistake dependent: destroy -> without ':'
+
+# a. Cocktail has dose => specifying ingredients (just choose as option)
+# b. ingredients -> from json => nothing new create, delete => NO CONTROLLER
+# c. dose related with cocktail => can put when creating Controller for cocktail

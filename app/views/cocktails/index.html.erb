@@ -17,11 +17,14 @@
                   <div class="col-xs-12 col-sm-6 col-md-4">
                     <!-- displayed cards -->
                     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
-                      <div class="card-category">Cocktail</div>
+                      <div class="card-category"><%= cocktail.name %></div>
                       <div class="card-description">
 
-                        <h4><%= cocktail.name %></h4>
-                        <!-- <p>< cocktail.ingredient %></p> -->
+                        <ul class="list-items list-unstyled">
+                          <% cocktail.ingredients.each do |ingredient| %>
+                            <li class="list-item"><%= ingredient.name %></li>
+                          <% end %>
+                        </ul>
                       </div>
                       <!--  <%= image_path "cocktails.jpg", alt: "Cocktail", class: "card-user avatar avatar-large" %> -->
                       <!-- <a class="card-link" href="#" ></a> -->

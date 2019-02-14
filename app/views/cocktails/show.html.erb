@@ -1,2 +1,51 @@
-<h1>Detailed cocktail</h1>
-<p><%= @cocktail.name %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= @cocktail.name %>
+        <!-- instead of description 'delete' pass whole 'path' do end -->
+        <%= link_to cocktail_path(@cocktail), method: :delete,
+          data: { confirm: "Are you sure?" } do %>
+          <small>
+            <i class="far fa-trash-alt"></i>
+          </small>
+          <% end %>
+      </h1>
+
+      <!-- DOES NOT MAKE SENCE CREATE INSIDE OF COCKTAIL NEW ONE !!! -->
+      <!-- < link_to 'Create new cocktail', new_cocktail_path %> -->
+
+    <!-- iterate through doses of this particular cocktail -->
+      <h3>Doses</h3>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li> <%= dose.description %>
+          <!-- delete particular dose, active icon -->
+          <%= link_to dose_path(dose), method: "DELETE"  do %>
+          <i class="far fa-trash-alt"></i>
+          <% end %>
+        </li>
+        <!-- verb method DELETE-->
+        <% end %>
+      </ul>
+
+      <i class="fas fa-glass-martini"></i> <%= link_to 'Create new dose',  new_cocktail_dose_path(@cocktail.id) %>
+
+      <h3>Ingredients</h3>
+        <ul> <% @cocktail.ingredients.each do |ingredient| %>
+          <li> <%= ingredient.name %> </li>
+          <% end %></ul>
+
+      <br>
+      <!-- link to delete whole cocktail -->
+
+      <br>
+      <i class="fas fa-redo"></i> <%= link_to "Back to all cocktails", root_path %>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+<!-- we changes routes to dose DELETE /doses/:id(.:format)  doses#destroy -->
+  <!-- < link_to "Delete", cocktail_dose_path(@cocktail, dose), method: "DELETE"  > -->
+
