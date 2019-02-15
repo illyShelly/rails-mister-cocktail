@@ -5,7 +5,11 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
+  # changed show controller for adding form for dose into the page
   def show
+    @cocktail = Cocktail.find(params[:id])
+    @dose = Dose.new
+    # @review = Review.new
   end
 
   # form

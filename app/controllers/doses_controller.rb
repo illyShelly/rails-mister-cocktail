@@ -1,11 +1,12 @@
 class DosesController < ApplicationController
 
-  def new
-    # params with id of cocktail goes from url params
-    @cocktail = Cocktail.find(params[:cocktail_id])
-    @dose = Dose.new
-  end
+  # def new
+  #   # params with id of cocktail goes from url params
+  #   @cocktail = Cocktail.find(params[:cocktail_id])
+  #   @dose = Dose.new
+  # end
 
+  # ADD FORM TO SHOW PAGE -> def new removed, routes - changed, render...
   def create
     # after submit the form => id of cocktail in params
     @cocktail = Cocktail.find(params[:cocktail_id])
@@ -13,12 +14,12 @@ class DosesController < ApplicationController
     # secure params
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
-
     if @dose.save
+      # redirect_to cocktail_path(@cocktail)
       redirect_to cocktail_path(@cocktail)
     else
-      render "doses/new"
-      # render "cocktails/show"
+      # render "doses/new" CHANGE PATH TO FORM
+      render "cocktails/show"
       # new_cocktail_dose GET  /cocktails/:cocktail_id/doses/new   doses#new
     end
   end
