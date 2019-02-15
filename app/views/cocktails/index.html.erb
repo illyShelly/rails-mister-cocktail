@@ -10,7 +10,6 @@
   </div>
   <div class="container">
     <!-- <div class="row"> -->
-      <h2>All cocktails</h2>
 
           <div class="cards padded">
             <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
@@ -18,7 +17,8 @@
                 <% @cocktails.each do |cocktail| %>
                   <div class="col-xs-12 col-sm-6 col-md-4">
                     <!-- displayed cards -->
-                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('                      https://source.unsplash.com/500x400/?cocktail');">
+                      <!-- https://images.unsplash.com/photo-1543479679-2ad5736490b6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=400&fit=crop&ixid=eyJhcHBfaWQiOjF9 -->
                       <div class="card-category"><%= cocktail.name %></div>
                       <div class="card-description">
 
@@ -28,7 +28,6 @@
                           <% end %>
                         </ul>
                       </div>
-                      <!--  <%= image_path "cocktails.jpg", alt: "Cocktail", class: "card-user avatar avatar-large" %> -->
                       <!-- <a class="card-link" href="#" ></a> -->
                       <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
                     </div> <!-- end of card -->

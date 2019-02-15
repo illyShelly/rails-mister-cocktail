@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container body-form fix-footer">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <h3>Add new recipe to <%= @cocktail.name %></h3>
+        <h3>Add dose to <%= @cocktail.name %></h3>
         <!-- get Ingredient.all ;{} created in seed.rb from JSON -->
         <%= f.association :ingredient %>
         <!-- volume of ingredient -->
         <%= f.input :description %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.button :submit, class: "btn btn-danger" %>
       <% end %>
       <hr>
       <%= link_to "Back to cocktail", cocktail_path(@cocktail) %>

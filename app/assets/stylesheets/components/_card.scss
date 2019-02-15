@@ -1,4 +1,7 @@
 /* Card design */
+.cards {
+  margin: 40px 0;
+}
 .card-title {
   opacity: 0.8;
   color: black;
@@ -27,8 +30,8 @@
 /*inner information*/
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 12px;
+  left: 15px;
   font-size: 20px;
 }
 
