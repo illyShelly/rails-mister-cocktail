@@ -1,7 +1,15 @@
-.body-form {
-  background-color: white;
-}
+// label#dose_new.form-control-label {
+//   text-shadow: #de1798;
+// }
 
-label.form-control .form-control-label {
-  text-shadow: #de1798;
+// input in navbar search
+input.form-control-sm {
+  margin-right: 5px;
+   border-radius: 3px;
+}
+input.form-control-sm[type="submit"] {
+    border: 1px solid #07d9ff;
+}
+input.form-control-sm[type="submit"]:hover {
+  border: 2px solid #07d9ff;
 }
