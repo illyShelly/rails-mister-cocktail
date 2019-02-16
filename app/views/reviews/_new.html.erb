@@ -1,7 +1,10 @@
 <%= simple_form_for [cocktail, review] do |f| %>
-  <%= f.input :rating, collection: 0..5, class: "form-control-sm" %>
+  <%= f.input :rating, collection: 1..5, default: '1', class: "form-control-sm" %>
   <%= f.input :content, placeholder: "The most tasty cocktail in the town", class: "form-control-sm" %>
 
   <br>
   <%= f.button :submit, class: "btn btn-danger" %>
 <% end %>
+
+
+<!-- selected: f.object.rating '1' ?? -->

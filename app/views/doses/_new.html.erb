@@ -7,7 +7,7 @@
         <!-- <h4>Add dose to = @cocktail.name %></h4> -->
 
         <!-- get Ingredient.all ;{} created in seed.rb from JSON -->
-        <%= f.association :ingredient %>
+        <%= f.association :ingredient, default: "" %>
         <!-- volume of ingredient -->
         <%= f.input :description, placeholder: "5cl or a handful", class: "form-control-sm" %>
         <br>
