@@ -8,7 +8,8 @@ class CocktailsController < ApplicationController
       # use instance variable in html
       @query = params[:query]
       # iLike
-      @cocktails = Cocktail.where("lower(name) LIKE '%#{params[:query]}%' ")
+      # @cocktails = Cocktail.where("lower(name) LIKE '%#{params[:query]}%' ")
+      @cocktails = Cocktail.where("name iLike '%#{params[:query]}%' ")
     else
       @cocktails = Cocktail.all
     end
