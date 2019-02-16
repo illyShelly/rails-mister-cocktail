@@ -10,6 +10,9 @@
     </div>
     <!-- <div class="row"> -->
     <div class="cards padded">
+    <!-- if found drink than display this headline -->
+    <% if @cocktails.count == 1 %>
+
       <h3 class="card-title text-center">YOUR beloved drink</h3>
         <div class="row">
           <% @cocktails.each do |cocktail| %>
@@ -32,6 +35,8 @@
             </div>
           <% end %>
       </div> <!-- end of row -->
+
+      <% end %>
     </div>
       <!-- </div> -->
   </div>
