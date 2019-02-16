@@ -7,6 +7,17 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <!-- Links -->
+    <!-- UPDATE NAVBAR WITH SEARCH INPUT => params[:query] ...name="query" when raise to check -->
+    <form class="form-inline my-2 my-lg-2">
+      <input class="form-control mr-sm-2"
+        type="search"
+        name="query"
+        placeholder="martini"
+        aria-label="martini"
+        value="<%= params[:query] %>">
+      <button class="btn btn-default " type="submit">Search</button>
+      <!-- my-2 my-sm-0 -->
+    </form>
     <%= link_to "", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "", "#", class: "navbar-wagon-item navbar-wagon-link" %>

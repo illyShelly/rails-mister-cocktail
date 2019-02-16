@@ -2,7 +2,16 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :destroy]
 
   def index
-    @cocktails = Cocktail.all
+    # ADDED SEARCH INPUT -> in nav, index.html => if searching -> show where name like sql command
+    # present?() public An object is present if it’s not blank. @return [true, false]
+    if params[:query].present?
+      # use instance variable in html
+      @query = params[:query]
+      # iLike
+      @cocktails = Cocktail.where("lower(name) LIKE '%#{params[:query]}%' ")
+    else
+      @cocktails = Cocktail.all
+    end
   end
 
   # changed show controller for adding form for dose into the page

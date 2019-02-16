@@ -1,41 +1,84 @@
-<div>
-  <div class="banner" style="background-image: linear-gradient(-120deg, rgba(0,101,168,0.2) 0%, rgba(0,0,0,0.6) 50%), url('<%= image_path 'bar.jpg' %>');">
-    <div class="banner-content">
-      <h1>Mr. Cocktail</h1>
-      <br>
-      <p>Awesome beverages for developers nightlife</p>
-      <br>
-      <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-default" %>
+<!-- ADDED SERCH INPUT -> HANDLE DISPLAY WITHOUT BANNER IF SEARCHING -->
+<% if @query %>
+  <div class="container fix-footer">
+    <!-- INFO ABOUT SEARCH -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Your search for: <strong><%= @query %></strong></h4>
+        <p> We found <strong><%= @cocktails.count %></strong> from <%= Cocktail.all.count %> cocktails in our database.</p>
+       </div>
+    </div>
+    <!-- <div class="row"> -->
+    <div class="cards padded">
+      <h3 class="card-title text-center">YOUR beloved drink</h3>
+        <div class="row">
+          <% @cocktails.each do |cocktail| %>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+              <!-- displayed cards -->
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('                      https://source.unsplash.com/500x400/?cocktail');">
+                <!-- https://images.unsplash.com/photo-1543479679-2ad5736490b6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=400&fit=crop&ixid=eyJhcHBfaWQiOjF9 -->
+                <div class="card-category"><%= cocktail.name %></div>
+                <div class="card-description">
+
+                  <ul class="list-items list-unstyled">
+                    <% cocktail.ingredients.each do |ingredient| %>
+                      <li class="list-item"><%= ingredient.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
+                <!-- <a class="card-link" href="#" ></a> -->
+                <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
+              </div> <!-- end of card -->
+            </div>
+          <% end %>
+      </div> <!-- end of row -->
+    </div>
+      <!-- </div> -->
+  </div>
+
+<% else %>
+
+<!-- IF NO SEARCH @query empty -->
+  <div>
+    <div class="banner" style="background-image: linear-gradient(-120deg, rgba(0,101,168,0.2) 0%, rgba(0,0,0,0.6) 50%), url('<%= image_path 'bar.jpg' %>');">
+      <div class="banner-content">
+        <h1>Mr. Cocktail</h1>
+        <br>
+        <p>Awesome beverages for developers nightlife</p>
+        <br>
+        <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-default" %>
+      </div>
+    </div>
+
+    <!-- SEARCH INPUT => controller index action => IF params[:query].present? ... -->
+    <div class="container">
+      <!-- <div class="row"> -->
+      <div class="cards padded">
+        <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
+          <div class="row">
+            <% @cocktails.each do |cocktail| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <!-- displayed cards -->
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('                      https://source.unsplash.com/500x400/?cocktail');">
+                  <!-- https://images.unsplash.com/photo-1543479679-2ad5736490b6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=400&fit=crop&ixid=eyJhcHBfaWQiOjF9 -->
+                  <div class="card-category"><%= cocktail.name %></div>
+                  <div class="card-description">
+
+                    <ul class="list-items list-unstyled">
+                      <% cocktail.ingredients.each do |ingredient| %>
+                        <li class="list-item"><%= ingredient.name %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <!-- <a class="card-link" href="#" ></a> -->
+                  <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
+                </div> <!-- end of card -->
+              </div>
+            <% end %>
+        </div> <!-- end of row -->
+      </div>
+        <!-- </div> -->
     </div>
   </div>
-  <div class="container">
-    <!-- <div class="row"> -->
 
-          <div class="cards padded">
-            <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
-              <div class="row">
-                <% @cocktails.each do |cocktail| %>
-                  <div class="col-xs-12 col-sm-6 col-md-4">
-                    <!-- displayed cards -->
-                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('                      https://source.unsplash.com/500x400/?cocktail');">
-                      <!-- https://images.unsplash.com/photo-1543479679-2ad5736490b6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=400&fit=crop&ixid=eyJhcHBfaWQiOjF9 -->
-                      <div class="card-category"><%= cocktail.name %></div>
-                      <div class="card-description">
-
-                        <ul class="list-items list-unstyled">
-                          <% cocktail.ingredients.each do |ingredient| %>
-                            <li class="list-item"><%= ingredient.name %></li>
-                          <% end %>
-                        </ul>
-                      </div>
-                      <!-- <a class="card-link" href="#" ></a> -->
-                      <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
-                    </div> <!-- end of card -->
-                  </div>
-                <% end %>
-            </div> <!-- end of row -->
-          </div>
-      <!-- </div> -->
-
-    </div>
-</div>
+<% end %>
