@@ -1,8 +1,12 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 50px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: calc(100vh - 50px);
+  // change for transiton navbar handle by js
+  // height: 100vh;
+  // padding-top: 40px;
+
   background-size: cover !important;
   display: flex;
   align-items: center;
