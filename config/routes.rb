@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :cocktails, only: [:index, :show, :new, :create, :destroy] do
     # resources :doses, only: [:create, :new]
     resources :doses, only: [:create]
+    # will pass it on the show without new html form
+    resources :reviews, only: [:create]
   end
   # doses can be deleted separately
   resources :doses, only: [:destroy]

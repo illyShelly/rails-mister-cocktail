@@ -4,6 +4,7 @@ class Cocktail < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true
   # later reviews
+  has_many :reviews, dependent: :destroy
 end
 
 # 1. cocktail has many ingredients though doses with volume
@@ -17,3 +18,5 @@ end
 # a. Cocktail has dose => specifying ingredients (just choose as option)
 # b. ingredients -> from json => nothing new create, delete => NO CONTROLLER
 # c. dose related with cocktail => can put when creating Controller for cocktail
+
+# 6. ADDED REVIEWS -> cocktail has many reviews -> destroy all dependent

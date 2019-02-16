@@ -19,6 +19,8 @@ class DosesController < ApplicationController
       redirect_to cocktail_path(@cocktail)
     else
       # render "doses/new" CHANGE PATH TO FORM
+      # ADDED REVIEWS -> IN SHOW PAGE
+      @review = Review.new
       render "cocktails/show"
       # new_cocktail_dose GET  /cocktails/:cocktail_id/doses/new   doses#new
     end

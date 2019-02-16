@@ -19,7 +19,8 @@ class CocktailsController < ApplicationController
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
-    # @review = Review.new
+    # added review to show page
+    @review = Review.new
   end
 
   # form

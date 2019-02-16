@@ -52,6 +52,30 @@
           </ul>
       </div>
     </div>
+    <!-- ADDED REVIEWS -->
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-6">
+        <!-- Added review form -->
+        <h4>Reviews</h4>
+          <ul class="">
+            <% @cocktail.reviews.each do |review| %>
+              <li>
+                <%= review.content %> -
+                <%= review.rating %>
+              </li>
+            <%end %>
+          </ul>
+
+
+        <div class="banner-card-center-form">
+          <%= render "reviews/new", cocktail: @cocktail, review: @review %>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
 
 </div>
