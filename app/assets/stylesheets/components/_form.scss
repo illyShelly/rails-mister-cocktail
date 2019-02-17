@@ -3,10 +3,20 @@ input.form-control-sm {
   margin-right: 5px;
   border-radius: 3px;
   font-weight: lighter;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
+// font-size of text in input form
+input.form-control {
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 1.2px;
+}
+// submit 'button'
 input.form-control-sm[type="submit"] {
     border: 1px solid #07d9ff;
     background: white;
+    letter-spacing: 0px;
 }
 input[type="submit"]:hover {
   border: 2px solid #07d9ff;

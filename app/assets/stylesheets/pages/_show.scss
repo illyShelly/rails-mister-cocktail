@@ -1,12 +1,58 @@
 .fix-footer-show {
   // banner + navbar
   height: calc(100vh - 480px);
+  // height: 100vh;
 }
 
 .some-padd {
   padding: 40px 0;
 }
 
+.dose-box {
+  padding-top: 32px;
+}
 .show-review {
   margin: 0;
+}
+.reviews-box {
+  padding-bottom: 30px;
+}
+
+
+@media only screen and (max-width: 550px) {
+  body {
+    font-size: 16px;
+  }
+  .big-trash-size {
+    font-size: 30px;
+  }
+  .icon-trash-link {
+    font-size: 20px;
+  }
+  .banner-card-content h1 {
+    font-size: 35px;
+  }
+  .reviews-box .some-padd {
+    font-size: 30px;
+    padding: 20px 0 20px 15px;
+  }
+
+  .banner-card-center-form {
+  }
+
+  .form-control {
+    width: 90%;
+  }
+  // footer
+  .footer-links a {
+    font-size: 18px;
+  }
+  .footer-copyright {
+    display: none;
+  }
+
+  input.form-control {
+  font-weight: lighter;
+  font-size: 16px;
+  }
 }

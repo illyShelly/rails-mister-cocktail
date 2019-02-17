@@ -1,94 +1,101 @@
 <div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
 
   <!-- added grid for lining up the form -->
-  <div class="banner-card-content">
-    <h1><%= @cocktail.name %>
-      <%= link_to cocktail_path(@cocktail), class: 'banner-card-link', method: :delete,
-          data: { confirm: "Really, delete this cocktail?" } do %>
-        <!-- <i class="far fa-trash-alt"></i> -->
-        .<i class="fa fa-trash big-trash-size" aria-hidden="true"></i>
-      <% end %>
-    </h1>
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-5">
+      <div class="banner-card-content">
+        <h1><%= @cocktail.name %>
+          <%= link_to cocktail_path(@cocktail), class: 'banner-card-link', method: :delete,
+              data: { confirm: "Really, delete this cocktail?" } do %>
+            <!-- <i class="far fa-trash-alt"></i> -->
+            .<i class="fa fa-trash big-trash-size" aria-hidden="true"></i>
+          <% end %>
+        </h1>
+      </div>
+    </div>
+    <!-- form for dose -->
+    <div class="col-xs-offset-1 col-xs-10 col-md-4">
+      <!-- added form for dose in show -->
+      <div class="banner-card-center-form">
+        <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+            <!-- <p>Awesome beverages for developers nightlife</p> -->
+      </div>
+    </div>
   </div>
-
-  <!-- added form for dose in show -->
-  <div class="banner-card-center-form">
-    <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
-        <!-- <p>Awesome beverages for developers nightlife</p> -->
-  </div>
-</div>
-
 </div>
 
 <div class="container">
   <!-- <div class="fix-footer-show"> -->
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-      <!-- iterate through doses of this particular cocktail -->
-        <h4>Doses
-       <!--    < link_to new_cocktail_dose_path(@cocktail.id), class: 'show-card-dose' do %>
-          <i class="fas fa-glass-martini"></i>
-          < end > -->
-        </h4>
-          <ul class="">
-            <% @cocktail.doses.each do |dose| %>
-            <li>
-              <%= dose.description %> -
-              <%= dose.ingredient.name %>
-              <!-- delete particular dose, active icon -->
-              <%= link_to dose_path(dose), method: "DELETE", class: 'icon-trash-link'  do %>
-              <i class="far fa-trash-alt"></i>
-              <% end %>
-            </li>
-            <!-- verb method DELETE-->
-            <% end %>
-          </ul>
-      </div>
-      <div class="col-xs-12 col-md-5">
-        <h4>Ingredients  <i class="fas fa-wine-glass"></i></h4>
-          <ul class=""> <% @cocktail.ingredients.each do |ingredient| %>
-            <li class=""> <%= ingredient.name %> </li>
-            <% end %>
-          </ul>
-      </div>
-    </div>
-    <!-- ADDED REVIEWS -->
-    <div class="row">
-      <!-- ADDED REVIEWS -->
-      <h2 class="some-padd">Reviews</h2>
-
-      <div class="col-xs-12 col-md-5">
-          <% @cocktail.reviews.each do |review| %>
-              <p class="show-review">
-                <!-- count variable assign to 0 -->
-                <% count = 0 %>
-                <!-- compare count to actual rating (integer) -->
-                <% while (review.rating > count) %>
-                  <!-- if true display star -->
-                  <% if review.rating > 3 %>
-                    <i class="far fa-star"></i>
-                  <!-- otherwise empty icon or nothing -->
-                  <% else %>
-                    <i class="fas fa-star"></i>
-                    <% end %>
-                  <!-- in loop increa count by 1 for another round -->
-                  <% count +=1 %>
+    <!-- ADDED DOSE -->
+    <div class="dose-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+        <!-- iterate through doses of this particular cocktail -->
+          <h4>Doses
+         <!--    < link_to new_cocktail_dose_path(@cocktail.id), class: 'show-card-dose' do %>
+            <i class="fas fa-glass-martini"></i>
+            < end > -->
+          </h4>
+            <ul class="">
+              <% @cocktail.doses.each do |dose| %>
+              <li>
+                <%= dose.description %> -
+                <%= dose.ingredient.name %>
+                <!-- delete particular dose, active icon -->
+                <%= link_to dose_path(dose), method: "DELETE", class: 'icon-trash-link'  do %>
+                <i class="far fa-trash-alt"></i>
                 <% end %>
-              </p>
-              <!-- content of review -->
-              <p><%= review.content %></p>
-            <%end %>
-      </div>
-      <!-- Review form -->
-      <div class="col-xs-12 col-md-offset-1 col-md-5 ">
-        <div class="banner-card-center-form">
-          <%= render "reviews/new", cocktail: @cocktail, review: @review %>
+              </li>
+              <!-- verb method DELETE-->
+              <% end %>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5">
+          <h4>Ingredients  <i class="fas fa-wine-glass"></i></h4>
+            <ul class=""> <% @cocktail.ingredients.each do |ingredient| %>
+              <li class=""> <%= ingredient.name %> </li>
+              <% end %>
+            </ul>
         </div>
       </div>
     </div>
-    <hr>
+    <!-- ADDED REVIEWS -->
+    <div class="reviews-box">
+      <div class="row">
+        <!-- ADDED REVIEWS -->
+        <h2 class="some-padd">Reviews</h2>
 
+        <div class="col-xs-12 col-md-5">
+            <% @cocktail.reviews.each do |review| %>
+                <p class="show-review">
+                  <!-- count variable assign to 0 -->
+                  <% count = 0 %>
+                  <!-- compare count to actual rating (integer) -->
+                  <% while (review.rating > count) %>
+                    <!-- if true display star -->
+                    <% if review.rating > 2 %>
+                      <i class="far fa-star"></i>
+                    <!-- otherwise empty icon or nothing -->
+                    <% else %>
+                      <i class="fas fa-star"></i>
+                      <% end %>
+                    <!-- in loop increa count by 1 for another round -->
+                    <% count +=1 %>
+                  <% end %>
+                </p>
+                <!-- content of review -->
+                <p><%= review.content %></p>
+              <%end %>
+        </div>
+        <!-- Review form -->
+        <div class="col-xs-12 col-md-offset-1 col-md-5 ">
+          <div class="banner-card-center-form">
+            <%= render "reviews/new", cocktail: @cocktail, review: @review %>
+          </div>
+        </div>
 
+      </div>
+    </div>
 
   <!-- </div> -->
 </div>
