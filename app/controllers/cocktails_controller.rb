@@ -17,10 +17,13 @@ class CocktailsController < ApplicationController
 
   # changed show controller for adding form for dose into the page
   def show
-    @cocktail = Cocktail.find(params[:id])
-    @dose = Dose.new
-    # added review to show page
-    @review = Review.new
+     if query_exist
+    else
+      @cocktail = Cocktail.find(params[:id])
+      @dose = Dose.new
+      # added review to show page
+      @review = Review.new
+    end
   end
 
   # form
@@ -42,7 +45,8 @@ class CocktailsController < ApplicationController
   def destroy
     @cocktail.destroy
      # redirecting to all cocktails
-    redirect_to cocktails_path
+    # 6 action for CRUD exi root for index
+    redirect_to root_path
   end
 
   private
@@ -54,5 +58,14 @@ class CocktailsController < ApplicationController
 
   def set_cocktail
     @cocktail = Cocktail.find(params[:id])
+  end
+
+  def query_exist
+    if params[:query].present?
+      # use instance variable in html
+      @query = params[:query]
+      @cocktails = Cocktail.where("name iLike '%#{params[:query]}%' ")
+      render 'cocktails/index'
+    end
   end
 end
