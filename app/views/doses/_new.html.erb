@@ -1,23 +1,11 @@
-<!-- <div class="container body-form fix-footer"> -->
-  <!-- <div class="row"> -->
-    <!-- <div class="col-xs-12 col-sm-8 col-sm-offset-2"> -->
-  <!-- <div> -->
-
-      <%= simple_form_for [cocktail, dose] do |f| %>
-        <!-- get Ingredient.all ;{} created in seed.rb from JSON -->
-        <%= f.association :ingredient, collection: Ingredient.order('name ASC'), default: "" %>
-        <!-- volume of ingredient -->
-        <%= f.input :description, placeholder: "5cl or a handful", class: "form-control-sm" %>
-        <br>
-        <%= f.button :submit, class: "btn btn-danger" %>
-      <% end %>
-  <!-- </div> -->
-      <!-- <hr>
-      <%= link_to "Back to cocktail", cocktail_path(@cocktail) %> -->
-    <!-- </div> -->
-  <!-- </div> -->
-<!-- </div> -->
-
+<%= simple_form_for [cocktail, dose] do |f| %>
+  <!-- get Ingredient.all ;{} created in seed.rb from JSON -->
+  <%= f.association :ingredient, collection: Ingredient.order('name ASC'), default: "" %>
+  <!-- volume of ingredient -->
+  <%= f.input :description, placeholder: "5cl or a handful", class: "form-control-sm" %>
+  <br>
+  <%= f.button :submit, class: "btn btn-danger" %>
+<% end %>
 
 
 <!-- So for cocktail it works, I need ingredients -->

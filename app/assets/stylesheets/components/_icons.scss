@@ -1,31 +1,34 @@
 
-.banner-card-icon {
+// trash icon in show
+.banner-card-link {
   // color: #daea5d;
   color: #00efff;
-
+}
+.banner-card-link:hover {
+  color: rgba(0,0,0,0.5);
+}
+.big-trash-size {
+  font-size: 35px;
 }
 
-.banner-card-icon:hover {
+// small trash to dose
+.icon-trash-link {
+  color: #f900b4;
+}
+.icon-trash-link:hover {
   color: rgba(0,0,0,0.5);
 }
 
+
+// back to cocktails link icon
+.back-to-icon-azur {
+  color: #07d9ff;
+}
+
+// Icon was removed
 .show-card-dose {
   color: #f900b4;
 }
 .show-card-dose:hover {
   color: #daea5d;
-}
-
-.icon-trash {
-  color: #f900b4;
-}
-.icon-trash:hover {
-  color: rgba(0,0,0,0.5);
-}
-.trash-size {
-  font-size: 35px;
-}
-
-.back-to-icon-azur {
-  color: #07d9ff;
 }

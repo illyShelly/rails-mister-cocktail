@@ -3,10 +3,10 @@
   <!-- added grid for lining up the form -->
   <div class="banner-card-content">
     <h1><%= @cocktail.name %>
-      <%= link_to cocktail_path(@cocktail), class: 'banner-card-icon', method: :delete,
+      <%= link_to cocktail_path(@cocktail), class: 'banner-card-link', method: :delete,
           data: { confirm: "Are you sure?" } do %>
         <!-- <i class="far fa-trash-alt"></i> -->
-        .<i class="fa fa-trash trash-size" aria-hidden="true"></i>
+        .<i class="fa fa-trash big-trash-size" aria-hidden="true"></i>
       <% end %>
     </h1>
   </div>
@@ -36,7 +36,7 @@
               <%= dose.description %> -
               <%= dose.ingredient.name %>
               <!-- delete particular dose, active icon -->
-              <%= link_to dose_path(dose), method: "DELETE", class: 'icon-trash'  do %>
+              <%= link_to dose_path(dose), method: "DELETE", class: 'icon-trash-link'  do %>
               <i class="far fa-trash-alt"></i>
               <% end %>
             </li>
