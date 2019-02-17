@@ -52,7 +52,27 @@
   }
 
   input.form-control {
-  font-weight: lighter;
+  // font-weight: lighter;
   font-size: 16px;
   }
+}
+
+@media only screen and (max-width: 770px) {
+  body {
+    font-size: 16px;
+  }
+  .big-trash-size {
+    font-size: 30px;
+  }
+  .icon-trash-link {
+    font-size: 20px;
+  }
+  .banner-card-content h1 {
+    font-size: 40px;
+  }
+  .reviews-box .some-padd {
+    font-size: 30px;
+    padding: 20px 0 20px 15px;
+  }
+
 }

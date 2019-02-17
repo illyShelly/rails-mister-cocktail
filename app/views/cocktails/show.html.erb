@@ -2,7 +2,7 @@
 
   <!-- added grid for lining up the form -->
   <div class="row">
-    <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-5">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-5 col-md-offset-1 col-md-5">
       <div class="banner-card-content">
         <h1><%= @cocktail.name %>
           <%= link_to cocktail_path(@cocktail), class: 'banner-card-link', method: :delete,
@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- form for dose -->
-    <div class="col-xs-offset-1 col-xs-10 col-md-4">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-4 col-md-4">
       <!-- added form for dose in show -->
       <div class="banner-card-center-form">
         <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
