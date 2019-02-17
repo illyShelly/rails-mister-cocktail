@@ -4,7 +4,7 @@
   <div class="banner-card-content">
     <h1><%= @cocktail.name %>
       <%= link_to cocktail_path(@cocktail), class: 'banner-card-link', method: :delete,
-          data: { confirm: "Are you sure?" } do %>
+          data: { confirm: "Really, delete this cocktail?" } do %>
         <!-- <i class="far fa-trash-alt"></i> -->
         .<i class="fa fa-trash big-trash-size" aria-hidden="true"></i>
       <% end %>
@@ -54,16 +54,32 @@
     </div>
     <!-- ADDED REVIEWS -->
     <div class="row">
+      <!-- ADDED REVIEWS -->
       <h2 class="some-padd">Reviews</h2>
 
       <div class="col-xs-12 col-md-5">
-        <!-- Added review form -->
           <% @cocktail.reviews.each do |review| %>
-              <li>
-                <%= review.rating %> - <%= review.content %>
-              </li>
+              <p class="show-review">
+                <!-- count variable assign to 0 -->
+                <% count = 0 %>
+                <!-- compare count to actual rating (integer) -->
+                <% while (review.rating > count) %>
+                  <!-- if true display star -->
+                  <% if review.rating > 3 %>
+                    <i class="far fa-star"></i>
+                  <!-- otherwise empty icon or nothing -->
+                  <% else %>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                  <!-- in loop increa count by 1 for another round -->
+                  <% count +=1 %>
+                <% end %>
+              </p>
+              <!-- content of review -->
+              <p><%= review.content %></p>
             <%end %>
       </div>
+      <!-- Review form -->
       <div class="col-xs-12 col-md-offset-1 col-md-5 ">
         <div class="banner-card-center-form">
           <%= render "reviews/new", cocktail: @cocktail, review: @review %>
