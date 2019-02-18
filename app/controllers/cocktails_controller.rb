@@ -53,7 +53,7 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     # in params key cocktail is allowed just :name
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 
   def set_cocktail

@@ -5,6 +5,8 @@ class Cocktail < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   # later reviews
   has_many :reviews, dependent: :destroy
+
+  mount_uploader :photo, PhotoUploader
 end
 
 # 1. cocktail has many ingredients though doses with volume
@@ -20,3 +22,5 @@ end
 # c. dose related with cocktail => can put when creating Controller for cocktail
 
 # 6. ADDED REVIEWS -> cocktail has many reviews -> destroy all dependent
+# 7. add column photo -> using using gem, generate uploader for photo
+# 8. controller, view, simple form update
