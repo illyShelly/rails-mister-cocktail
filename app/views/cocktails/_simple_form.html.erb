@@ -2,8 +2,11 @@
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.input :photo %>
+<!-- class="btn btn-primary button-flat" -->
+  <%= f.input :photo, required: true %>
   <%= f.input :photo_cache, as: :hidden %>
   <br>
   <%= f.button :submit, class: 'btn btn-danger' %>
 <% end %>
+
+

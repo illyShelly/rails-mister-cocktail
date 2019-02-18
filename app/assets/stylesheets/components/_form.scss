@@ -21,3 +21,8 @@ input.form-control-sm[type="submit"] {
 input[type="submit"]:hover {
   border: 2px solid #07d9ff;
 }
+
+// input for picture
+input[type="file"] {
+  font-size: 15px;
+}
