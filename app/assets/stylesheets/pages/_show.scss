@@ -1,3 +1,8 @@
+// row in banner-card does not extend the width
+html, body {
+    overflow-x: hidden;
+}
+
 .fix-footer-show {
   // banner + navbar
   height: calc(100vh - 480px);
@@ -17,7 +22,6 @@
 .reviews-box {
   padding-bottom: 30px;
 }
-
 
 @media only screen and (max-width: 550px) {
   body {
